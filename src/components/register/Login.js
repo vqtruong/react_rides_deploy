@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import { userExists } from "../../api/UserServices";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,7 +9,7 @@ export default function Login () {
     const [name, setName] = useState(""); 
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
-    const [loggedIn, setLoggedIn] = useState(false);
+    const history = useHistory();
 
     function handleNameChange(event) {
         setName(event.target.value);
@@ -41,18 +41,17 @@ export default function Login () {
                     draggable: true,
                     progress: undefined,
                     });
-                setLoggedIn(false);
+                localStorage.setItem("logged_in", false);
             } else {
-                setLoggedIn(true);
                 localStorage.setItem("logged_in", true);
+                history.push("/admin");
             }
-            console.log(loggedIn);
         })
     }
 
     useEffect(() => {
         if (localStorage.getItem("logged_in") === "true") {
-            setLoggedIn(true);
+            history.push("/admin");
         }
     }, [])
 
@@ -82,8 +81,7 @@ export default function Login () {
                     
                 <div className="submit-row">    
                     <button type="submit" className="btn btn-success" id="submit-btn" onClick={handleSubmit}> 
-                            {loggedIn ? <Redirect to="/admin"/> : null}
-                            Log In
+                        Log In
                     </button>
                 </div>
                 <small id="login" className="form-text text-muted">
