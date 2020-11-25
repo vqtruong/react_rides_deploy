@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import User from "../admin/User";
 import { addUser } from "../../api/UserServices";
 import { Alert } from 'react-bootstrap';
@@ -88,7 +88,7 @@ export default function Register () {
         if (localStorage.getItem("logged_in") === "true") {
             history.push("/admin");
         }
-    }, [])
+    }, [history])
 
     return (
         <div id="register">

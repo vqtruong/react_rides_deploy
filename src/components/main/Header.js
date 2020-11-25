@@ -10,7 +10,7 @@ export default function Header () {
     }
 
     useEffect(() => {
-        if (localStorage.getItem("logged_in") != "true") {
+        if (localStorage.getItem("logged_in") !== "true") {
             setLoggedIn(false);
         }
     }, [])

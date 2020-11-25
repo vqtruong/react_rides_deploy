@@ -115,13 +115,6 @@ export default function Admin ({ text }) {
         
     }
 
-    
-    function handleTest() {
-        // getAllUsers().then((rsp) => {
-        //     setUsers(rsp);
-        // });
-    }
-
     const [show, setShow] = useState(false);
     const [confirmModalIndex, setConfirmModalIndex] = useState(null);
     const handleClose = () => setShow(false);
