@@ -36,7 +36,7 @@ export function deleteCarByID(id) {
 }
 
 export function addCars(cars) {
-    cars.foreach((car) => {
+    cars.forEach((car) => {
         addCar(car);
     })
 }
