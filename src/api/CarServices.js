@@ -7,7 +7,7 @@ export async function updateCars(cars) {
 
 export async function deleteAllCars() {
     let allCars = await getAllCars();
-    return allCars.foreach((car) => {
+    return allCars.forEach((car) => {
         deleteCarByID(car.id);
     })
 }
@@ -36,7 +36,7 @@ export function deleteCarByID(id) {
 }
 
 export function addCars(cars) {
-    cars.foreach((car) => {
+    cars.forEach((car) => {
         addCar(car);
     })
 }

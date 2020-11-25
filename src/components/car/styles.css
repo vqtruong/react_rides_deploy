@@ -1,7 +1,7 @@
 .carList {
     display: flex;
     flex-wrap: wrap;
-    width: 75%;
+    width: 100%;
     margin-top: 50px;
 }
 
