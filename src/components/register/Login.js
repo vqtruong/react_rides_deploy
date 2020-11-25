@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { userExists } from "../../api/UserServices";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -53,7 +53,7 @@ export default function Login () {
         if (localStorage.getItem("logged_in") === "true") {
             history.push("/admin");
         }
-    }, [])
+    }, [history])
 
     
 
