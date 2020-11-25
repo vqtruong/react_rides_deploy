@@ -1,0 +1,156 @@
+.carList {
+    display: flex;
+    flex-wrap: wrap;
+    width: 75%;
+    margin-top: 50px;
+}
+
+.car {
+    background-color: #89BEEF;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 320px;
+    margin-bottom: 30px;
+    margin-right: 30px;
+}
+
+.over {
+    opacity: 0.5;
+    color: red;
+}
+
+.carHeader {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1.5px solid black;
+}
+
+.relative { 
+    position: relative;
+    width: 100%;
+}
+
+.hoverbox {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color:rgba(137, 190, 239, 0.7);  */
+    text-align: center;
+    opacity: 0;
+}
+
+.hoverbox:hover {
+    opacity: 1;
+}
+
+.carHeader:hover .hoverbox {
+    display: inline;
+}
+
+.pickupLocation {
+    width: 100%;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+}
+
+.pickupTime {
+    width: 100%;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+}
+
+.driverName {
+    width: 100%;
+    font-family: 'Spartan', sans-serif;
+    font-size: 24px;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.driverName h3 {
+    padding: 0;
+    margin: 0;
+}
+
+.driverPhone {
+    width: 100%;
+    margin: 0;
+    font-weight: normal;
+    padding-bottom: 19px;
+}
+
+.passengers {
+    width: 90%;
+    padding-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* text-align: center; */
+}
+
+.passengerEntry {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.passengerEntryContents {
+    width: 100%;
+}
+
+.passengerName {
+    font-size: 18px;
+}
+
+.passengerPhone {
+    font-size: 14px;
+    margin: 0;
+}
+
+.passengerEntryActions {
+    width: 15%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+}
+
+.passengerEntryActions:hover {
+    opacity: 1;
+}
+
+.remove {
+    cursor: pointer;
+    width: 100%;
+}
+
+.removeButton {
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.remove-icon {
+    cursor: pointer;
+    color: #c71028;
+    margin: 0;
+    padding: 0;
+}
+
+.view-only {
+    display: none;
+}

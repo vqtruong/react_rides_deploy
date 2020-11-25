@@ -1,0 +1,57 @@
+#main {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#sidebar {
+    width: 20%;
+    margin-right: 5%;
+    max-width: 300px;
+}
+
+h2.sidebarHeader {
+    width: 100%;
+}
+
+.sidebarEntry {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: move;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidebarEntry:hover {
+    background-color: #e8e8e8;
+}
+
+.dragged {
+    opacity: 0.5;
+}
+
+.assigned {
+    text-decoration: line-through;
+    cursor: default;
+}
+
+.delete-button {
+    cursor: pointer;
+}
+
+.profile-icon {
+    cursor: pointer;
+}
+
+
+.dropdownItem {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
