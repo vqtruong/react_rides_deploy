@@ -13,7 +13,6 @@ export default function Car ({ cars, setCars, index, draggedItem, deleteCar, ass
         }
         let newCars = cars.map((car, j) => {
             if (index === j) {
-                console.log(j);
                 let newCar = _.cloneDeep(car);
                 newCar.driver.reset();
                 return newCar;
@@ -45,8 +44,6 @@ export default function Car ({ cars, setCars, index, draggedItem, deleteCar, ass
 
 
     function handleDriverDragLeave(e) {
-        // e.preventDefault();
-        // e.stopPropagation();
         setOver(false);
     }
 
@@ -141,17 +138,12 @@ function Passenger ({ passenger, draggedItem, cars, setCars, passengerIndex, car
     }
 
     function handlePassengerDragLeave(e) {
-        // e.preventDefault();
-        // e.stopPropagation();
-        
-        // console.log(over ? "carHeader over" : "carHeader")
     }
 
     function handleRemovePassenger() {
         let newCars = cars.map((car, j) => {
             if (carIndex === j) {
                 let newCar = _.cloneDeep(car);
-                console.log(newCar);
                 newCar.removePassenger(passengerIndex);
                 return newCar;
             }

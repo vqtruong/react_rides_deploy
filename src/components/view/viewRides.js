@@ -5,8 +5,6 @@ import { getAllCars } from "../../api/CarServices";
 import "./styles.css";
 
 export default function ViewRides () {
-
-
     const [cars, setCars] = useState([]);
 
     useEffect(() => {

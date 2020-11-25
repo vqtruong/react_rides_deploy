@@ -15,6 +15,7 @@ export default function Profile () {
     }))
 
     useEffect(() => {
+        document.title = "Profile";
         getUserByID(id).then((rsp) => {
             setUser(rsp);
         })

@@ -20,6 +20,7 @@ export default function Admin ({ text }) {
 
     useEffect(() => {
         document.title = "Manage Rides";
+
         getAllUsers().then((rsp) => {
             setUsers(rsp);
         });
@@ -65,7 +66,6 @@ export default function Admin ({ text }) {
     }
 
     function handleAutogenerate() {
-        console.log("auto");
         autogenerate(users, setCars, assign);
     }
 
@@ -185,7 +185,6 @@ export default function Admin ({ text }) {
 
     function dropDriver(index) {
         // Update corresponding car
-        console.log(index);
         let newCars = cars.map((car, j) => {
             if (index === j) {
                 let newCar = _.cloneDeep(car);

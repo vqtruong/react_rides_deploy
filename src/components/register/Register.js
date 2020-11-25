@@ -31,7 +31,6 @@ export default function Register () {
     }
 
     function handlePickupLocationChange(event) {
-        console.log(event.target.value);
         setPickupLocation(event.target.value);
     }
 
@@ -40,30 +39,27 @@ export default function Register () {
     }
 
     function handleSubmit(e) {
+        e.preventDefault();
         let valid = true;
 
-        // 
         if (name.trim().length === 0) {
-            // setName
             setNameError(true);
             setTimeout(() => { setNameError(false) }, 3000);
             valid = false;
         }
 
         if (email.trim().length === 0 || !email.includes('@')) {
-            // setName
+            console.log("")
             setEmailError(true);
             setTimeout(() => { setEmailError(false) }, 3000);
             valid = false;
         }
 
         if (phone.trim().length === 0) {
-            // setName
             setPhoneError(true);
             setTimeout(() => { setPhoneError(false) }, 3000);
             valid = false;
         }
-
 
 
         if (valid) {
@@ -77,11 +73,10 @@ export default function Register () {
             })
             addUser(newUser).then((rsp) => {
                 localStorage.setItem("logged_in", true);
-                history.push("/admin");
+                setTimeout(() => {history.push("/admin");}, 500)
+                // history.push("/admin");
             });
         }
-        e.preventDefault();
-        
     }
 
     useEffect(() => {
@@ -93,8 +88,6 @@ export default function Register () {
 
     return (
         <div id="register">
-
-
             <h1> Lighthouse Rides </h1>
             <form>
                 <div className="center">
@@ -109,8 +102,6 @@ export default function Register () {
                             
                     </div>
 
-                    
-
                     <div className="form-group">
                         <label htmlFor="name">Email</label>
                         <input type="email" className="form-control" value={email} onChange={handleEmailChange} id="email" placeholder="Enter your email..."/>
@@ -119,7 +110,6 @@ export default function Register () {
                                 Please enter a valid email.
                             </Alert>
                         }
-                    
                     </div>
 
                     <div className="form-group">
@@ -130,7 +120,6 @@ export default function Register () {
                                 Please only enter digits..
                             </Alert>
                         }
-                    
                     </div>
 
                     <div className="form-group">
@@ -148,20 +137,15 @@ export default function Register () {
                             <label class="form-check-label" htmlFor="defaultCheck1" > Are you able to drive? </label>
                         </div>
                     </div>
-
-                    
                 </div>
                     
                 <div className="submit-row">    
                     <button className="btn btn-success" id="submit-btn" onClick={handleSubmit}> 
-                        <Link to="/admin" className="navLink">
-                            Register
-                        </Link>
+                        Register
                     </button>
                 </div>
                 <small id="login" className="form-text text-muted">Already have an account? Login <a href="./login">here.</a></small>
             </form>
-            
         </div>
     )
 }

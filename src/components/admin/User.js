@@ -1,12 +1,4 @@
 export default class User {
-    // constructor(name, phone, id, pickupLocation) {
-    //     this.name = name;
-    //     this.phone = phone;
-    //     this.id = id;
-    //     this.pickupLocation = pickupLocation;
-    //     this.assigned = false;
-    // }
-
     constructor(user) {
         this.name = user.name;
         this.phone = user.phone;

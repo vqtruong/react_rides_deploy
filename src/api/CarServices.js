@@ -1,9 +1,11 @@
 import Car from "../components/admin/Car";
 
+// To update the car, delete all the cars and add the new ones
 export async function updateCars(cars) {
     await deleteAllCars();
     await addCars(cars);
 }
+
 
 export async function deleteAllCars() {
     let allCars = await getAllCars();
@@ -50,7 +52,6 @@ export function addCar(car) {
         capacity: car.capacity,
         count: car.count,
     }
-
 
     return fetch("/api/cars", {
         method: "POST",

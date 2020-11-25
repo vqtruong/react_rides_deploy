@@ -36,7 +36,6 @@ function SidebarEntry ({ user, setDraggedItem, handleDeleteUser }) {
 
     function handleDragEnd(e) {
         setDragging(false);
-        // setDraggedItem(null);
     }
 
 
