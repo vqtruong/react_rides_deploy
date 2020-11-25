@@ -4,6 +4,9 @@
 
 [Demo](https://usc.zoom.us/rec/play/wqwGnlihtBx9vX5UxOjofLLNMJpm1gcBgNhmq2h9ati3kj1izvlmq1zXrKIEKVfh4GwglykiPBMEsQmM.G_enLMCw_MBHCgMr?continueMode=true)
 
+Tests
+![Tests](/itp404_final_project_tests.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
