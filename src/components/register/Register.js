@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import User from "../admin/User";
 import { addUser } from "../../api/UserServices";
 import { Alert } from 'react-bootstrap';
