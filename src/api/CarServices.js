@@ -13,7 +13,7 @@ export async function deleteAllCars() {
 }
 
 export async function getAllCars() {
-    return fetch("/cars", {
+    return fetch("/api/cars", {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
@@ -30,13 +30,13 @@ export async function getAllCars() {
 }
 
 export function deleteCarByID(id) {
-    return fetch(`/cars/${id}`, {
+    return fetch(`/api/cars/${id}`, {
         method: "delete",
     })
 }
 
 export function addCars(cars) {
-    cars.forEach((car) => {
+    cars.foreach((car) => {
         addCar(car);
     })
 }
@@ -52,7 +52,7 @@ export function addCar(car) {
     }
 
 
-    return fetch("/cars", {
+    return fetch("/api/cars", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {

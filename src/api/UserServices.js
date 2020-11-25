@@ -1,7 +1,7 @@
 import User from "../components/admin/User";
 
 export function getUserByID(id) {
-    return fetch(`/users/${id}`, {
+    return fetch(`/api/users/${id}`, {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
@@ -14,7 +14,7 @@ export function getUserByID(id) {
 }
 
 export function getAllUsers() {
-    return fetch("/users", {
+    return fetch("/api/users", {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
@@ -39,7 +39,7 @@ export function addUser(user) {
     }
 
 
-    return fetch("/users", {
+    return fetch("/api/users", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
