@@ -10,6 +10,7 @@ export default function ViewRides () {
     const [cars, setCars] = useState([]);
 
     useEffect(() => {
+        document.title = "View Rides";
         getAllCars().then((rsp) => {
             setCars(rsp);
         })

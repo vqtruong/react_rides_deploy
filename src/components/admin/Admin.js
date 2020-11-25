@@ -19,12 +19,10 @@ export default function Admin ({ text }) {
     const [modalDisplay, setModalDisplay] = useState("");
 
     useEffect(() => {
+        document.title = "Manage Rides";
         getAllUsers().then((rsp) => {
             setUsers(rsp);
-            
         });
-
-        
     }, []);
 
     function addCar() {

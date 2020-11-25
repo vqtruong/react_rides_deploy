@@ -85,6 +85,7 @@ export default function Register () {
     }
 
     useEffect(() => {
+        document.title = "Register";
         if (localStorage.getItem("logged_in") === "true") {
             history.push("/admin");
         }

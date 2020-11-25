@@ -50,6 +50,7 @@ export default function Login () {
     }
 
     useEffect(() => {
+        document.title = "Login";
         if (localStorage.getItem("logged_in") === "true") {
             history.push("/admin");
         }
