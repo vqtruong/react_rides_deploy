@@ -7,13 +7,13 @@ export async function updateCars(cars) {
 
 export async function deleteAllCars() {
     let allCars = await getAllCars();
-    return allCars.map((car) => {
+    return allCars.foreach((car) => {
         deleteCarByID(car.id);
     })
 }
 
 export async function getAllCars() {
-    return fetch("/api/cars", {
+    return fetch("/cars", {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
@@ -21,27 +21,22 @@ export async function getAllCars() {
     })
     .then((response) => response.json())
     .then((response) => {
-        console.log(response);
         let newCars = response.map((car) => {
-            // id, pickupLocations, pickupTime, driver, passengers
             let newCar = new Car(car.id, car.pickupLocations, car.pickupTime, car.driver, car.passengers);
-            console.log(newCar);
             return newCar;
         })
-
-        console.log(newCars)
         return newCars;
     });
 }
 
 export function deleteCarByID(id) {
-    return fetch(`/api/cars/${id}`, {
+    return fetch(`/cars/${id}`, {
         method: "delete",
     })
 }
 
 export function addCars(cars) {
-    cars.map((car) => {
+    cars.foreach((car) => {
         addCar(car);
     })
 }
@@ -57,7 +52,7 @@ export function addCar(car) {
     }
 
 
-    return fetch("/api/cars", {
+    return fetch("/cars", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -67,7 +62,6 @@ export function addCar(car) {
     })
     .then((response) => response.json())
     .then((response) => {
-        console.log(response);
         return response;
     })
 }

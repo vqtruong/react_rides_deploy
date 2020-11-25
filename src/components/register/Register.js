@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import User from "../admin/User";
 import { addUser } from "../../api/UserServices";
 import { Alert } from 'react-bootstrap';
@@ -9,6 +9,7 @@ export default function Register () {
     const [name, setName] = useState(""); 
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
+    const history = useHistory();
 
     const [nameError, setNameError] = useState(false);
     const [emailError, setEmailError] = useState(false);
@@ -16,7 +17,6 @@ export default function Register () {
 
     const [pickupLocation, setPickupLocation] = useState("EVK");
     const [canDrive, setCanDrive] = useState(false);
-    const [loggedIn, setLoggedIn] = useState(false);
 
     function handleNameChange(event) {
         setName(event.target.value);
@@ -40,25 +40,28 @@ export default function Register () {
     }
 
     function handleSubmit(e) {
-        let valid = false;
+        let valid = true;
 
         // 
         if (name.trim().length === 0) {
             // setName
             setNameError(true);
             setTimeout(() => { setNameError(false) }, 3000);
+            valid = false;
         }
 
         if (email.trim().length === 0 || !email.includes('@')) {
             // setName
             setEmailError(true);
             setTimeout(() => { setEmailError(false) }, 3000);
+            valid = false;
         }
 
         if (phone.trim().length === 0) {
             // setName
             setPhoneError(true);
             setTimeout(() => { setPhoneError(false) }, 3000);
+            valid = false;
         }
 
 
@@ -72,7 +75,10 @@ export default function Register () {
                 "assigned": false,
                 "canDrive": canDrive,
             })
-            addUser(newUser);
+            addUser(newUser).then((rsp) => {
+                localStorage.setItem("logged_in", true);
+                history.push("/admin");
+            });
         }
         e.preventDefault();
         
@@ -80,13 +86,13 @@ export default function Register () {
 
     useEffect(() => {
         if (localStorage.getItem("logged_in") === "true") {
-            setLoggedIn(true);
+            history.push("/admin");
         }
     }, [])
 
     return (
         <div id="register">
-            {loggedIn ? <Redirect to="/admin"/> : null}
+
 
             <h1> Lighthouse Rides </h1>
             <form>
@@ -118,7 +124,7 @@ export default function Register () {
                     <div className="form-group">
                         <label htmlFor="name">Phone</label>
                         <input type="text" className="form-control" value={phone} onChange={handlePhoneChange} id="phone" placeholder="Enter your phone..."/>
-                        { emailError && 
+                        { phoneError && 
                             <Alert className="alert-box" variant="danger">
                                 Please only enter digits..
                             </Alert>
@@ -146,8 +152,8 @@ export default function Register () {
                 </div>
                     
                 <div className="submit-row">    
-                    <button type="submit" className="btn btn-success" id="submit-btn"> 
-                        <Link to="./admin" className="navLink" onClick={handleSubmit}>
+                    <button className="btn btn-success" id="submit-btn" onClick={handleSubmit}> 
+                        <Link to="/admin" className="navLink">
                             Register
                         </Link>
                     </button>
