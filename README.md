@@ -1,3 +1,8 @@
+# Relevant Links
+
+[Deployed Website](https://competent-meninsky-5f17a6.netlify.app)
+[Demo](https://usc.zoom.us/rec/play/wqwGnlihtBx9vX5UxOjofLLNMJpm1gcBgNhmq2h9ati3kj1izvlmq1zXrKIEKVfh4GwglykiPBMEsQmM.G_enLMCw_MBHCgMr?continueMode=true)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
