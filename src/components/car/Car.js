@@ -59,6 +59,7 @@ export default function Car ({ cars, setCars, index, draggedItem, deleteCar, ass
 
 
     useEffect(() => {
+        // eslint-disable-next-line
         car = cars[index];
     }, [index]);
 
